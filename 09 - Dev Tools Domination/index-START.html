@@ -18,29 +18,55 @@
     }
 
     // Regular
+    console.log('hello')
 
     // Interpolated
-
+    console.log('Hello I am a %s string!', 'data value')
     // Styled
+    console.log('%cI am some great text', 'font-size: 50px; background:red')
 
     // warning!
-
+    console.warn('UH OH')
     // Error :|
-
+    console.error('UH OH')
     // Info
-
+    console.info('Seattle was founded in 1851')
     // Testing
-
+    console.assert(1 === 2, 'Newp')
     // clearing
-
+    console.clear() // clears the console
     // Viewing DOM Elements
-
+    const p = document.querySelector('p')
+    console.log(p)
+    // shows all the prototypes
+    console.dir(p)
     // Grouping together
-
+    console.clear()
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+      console.groupEnd(`{dog.name}`)
+    })
     // counting
+    // coutns how many times you use something
+    console.count('Me')
+    console.count('Me')
+    console.count('Me')
+    console.count('Me')
+    console.count('Me')
 
     // timing
+    console.time('Fetching data');
+    fetch('https://api.github.com/users/mgcarbonell')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('Fetching data');
+      })
 
+    // table
+    console.table(dogs)
   </script>
 </body>
 </html>
