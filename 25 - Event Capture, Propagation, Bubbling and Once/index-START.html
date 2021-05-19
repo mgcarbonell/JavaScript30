@@ -42,6 +42,22 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
+
+  function logText(e) {
+    console.log(this.classList.value);
+    // e.stopPropagation(); // this will stop from bubbling/event is local to 3 div
+
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false, // if we set to capture true it flips it
+    // because of how javascript and the browser call events
+    // and also how they log clicks.
+    once: true // this will unbind a this, so no future clicks can occur
+  }));
+
 
 </script>
 </body>
